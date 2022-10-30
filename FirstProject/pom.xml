@@ -21,21 +21,21 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.5.0</version>
+      <version>4.4.0</version>
     </dependency>
 
     <!-- Cucumber - java -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
-      <version>7.8.0</version>
+      <version>7.6.0</version>
     </dependency>
 
     <!-- Cucumber - testng -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-testng</artifactId>
-      <version>7.8.0</version>
+      <version>7.3.0</version>
     </dependency>
 
     <!-- WebDriver Manager -->
@@ -51,14 +51,6 @@
       <artifactId>javafaker</artifactId>
       <version>1.0.2</version>
     </dependency>
-
-    <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-all</artifactId>
-      <version>4.1.82.Final</version>
-    </dependency>
-
 
   </dependencies>
 
