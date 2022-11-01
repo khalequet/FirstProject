@@ -1,31 +1,59 @@
 package stepDef;
 
-import base.config;
+import base.Config;
+import base.GenericFunctions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.opentelemetry.exporter.logging.SystemOutLogExporter;
 import pageObject.login_page;
 
-public class login_stepDef extends config {
+public class login_stepDef extends Config {
+
     login_page LP = new login_page(driver);
+    GenericFunctions GF = new GenericFunctions();
 
-    @Given("I am at TalentTek Homepage")
-    public void iAmAtTalentTekHomepage() {
-    LP.verifyHomePageTitle();
+    @Given("i am at TalentTEK Homepage")
+    public void iAmAtTalentTEKHomepage() {
+        LP.verifyHomePageTitle();
+        GF.getCurrentDateAndTimeWithTimeStamp();
     }
-
-    @And("I enter valid email address")
-    public void iEnterValidEmailAddress() {
+    @And("i enter my valid email address")
+    public void iEnterMyValidEmailAddress() {
         LP.enterEmail(Hook.eMail);
     }
-
-    @And("I enter valid password")
-    public void iEnterValidPassword() {
-        
+    @And("i enter my valid password")
+    public void iEnterMyValidPassword() {
+        LP.enterPass(Hook.password);
+    }
+    @When("i click on Login button")
+    public void iClickOnLoginButton() {
+        LP.clickLoginButton();
     }
 
-    @When("I click on Login Button")
-    public void iClickOnLoginButton() {
+    @And("i enter my invalid email address")
+    public void iEnterMyInvalidEmailAddress() {
+        LP.enterEmail("myfakeemail12121@gmai.com");
+    }
+
+    @Then("i should not be able to successfully login")
+    public void iShouldNotBeAbleToSuccessfullyLogin() {
+        LP.verifyInvalidEmailOrPassErrorMsg();
+    }
+
+    @And("i enter my invalid password")
+    public void iEnterMyInvalidPassword() {
+        LP.enterPass("myfakePas$1");
+    }
+
+    @And("i click on {string} button from signup page")
+    public void iClickOnButton(String buttonText) {
+        LP.clickCreateNewAccountButton(buttonText);
+    }
+
+    @When("i click on {string} button from Sign in page")
+    public void iClickOnButtonFromSignInPage(String buttonText) {
+        LP.clickOnLoginButton(buttonText);
+
     }
 }
